@@ -1,8 +1,8 @@
 <html>
 <head>
 	<link rel="stylesheet" href="$MARKDOWN_BUILD_DIR/highlight/styles/default.css">
-	<link rel="stylesheet" href="$MARKDOWN_BUILD_DIR/markdown.style.css">
-	<script src="$MARKDOWN_BUILD_DIR/jquery-1.7.1.min.js"></script>
+	<link rel="stylesheet" href="$MARKDOWN_BUILD_DIR/css/markdown.style.css">
+	<script src="$MARKDOWN_BUILD_DIR/js/jquery-1.7.1.min.js"></script>
 	<script src="$MARKDOWN_BUILD_DIR/highlight/highlight.pack.js"></script>
 	<script type="text/javascript">
 		// initialise the syntax highlighter
@@ -16,15 +16,17 @@
 			});
 
 			$('h1').click(function() {
-				$(this).nextUntil('h1', 'h2').each(function(i, e) {
-					$(e).nextUntil('h2,h1').hide();
-					$(e).toggle(200);
-				});
+				$(this).nextUntil('h1', 'div').toggle(200);
+			});
+
+			// create a new div around all of the h2 elements
+			$('h2').each(function(i, e) {
+				$(this).nextUntil('h2,h1').wrap($('<div />'));
+				$(this).prependTo($(this).next('div'));
 			});
 		
-			// hide all children to begin with
-			$('h2').click();
-			$('h1').click();
+			// hide all nodes
+			$('h2').nextUntil('h2,h1').hide();
 		});
 	</script>
 </head>

@@ -5,10 +5,10 @@ import commands
 import argparse
 
 # some default values
-MARKDOWN_DIR = commands.getoutput('find ~/ -name .markdown | tail -n 1')
+MARKDOWN_DIR = os.path.join('/home', commands.getoutput('whoami').strip(), '.markdown')
 DEFAULT_OUTPUT = 'out.html'
-DEFAULT_HEADER = os.path.join(MARKDOWN_DIR, 'markdown.header.html')
-DEFAULT_FOOTER = os.path.join(MARKDOWN_DIR, 'markdown.footer.html')
+DEFAULT_HEADER = os.path.join(MARKDOWN_DIR, 'content', 'markdown.header.html')
+DEFAULT_FOOTER = os.path.join(MARKDOWN_DIR, 'content', 'markdown.footer.html')
 TEMP_FILE = os.path.join('/tmp', 'md.tmp')
 
 ## register the arguments we take ##

@@ -17,8 +17,15 @@ h2 {
 	background-color: #7A8AFF;
 }
 
+code {
+	white-space: pre;
+}
+
 em {
 	font-weight: bold;
 	font-style: normal;
 }
 
+div {
+	display: none;
+}
