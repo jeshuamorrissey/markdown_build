@@ -1,31 +1,46 @@
+/* make the font nice */
 h1,h2,h3,h4,p,li {
 	font-family: "Helvetica";
 }
 
+/* makes headers look like lists */
 h1,h2 {
 	border-radius: 10px;
 	padding: 10px;
 	cursor: pointer;
 }
 
+/* bit headers (super sections) */
 h1 {
 	border-bottom: 2px solid #000;
 	background-color: #1F39FF;
+	font-size: 20px;
 }
 
+/* section headers */
 h2 {
 	background-color: #7A8AFF;
+	font-size: 16px;
 }
 
+/* embedded code blocks */
 code {
 	white-space: pre;
 }
 
+/* emphases, *text* or _text_ */
 em {
 	font-weight: bold;
 	font-style: normal;
 }
 
+/* strong, **text** or __text__ */
+strong {
+	font-style: italic;
+	font-weight: normal;
+}
+
+/* containers for actual content (including section headers) */
 div {
 	display: none;
 }

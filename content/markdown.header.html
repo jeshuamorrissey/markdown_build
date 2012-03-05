@@ -11,12 +11,15 @@
 	
 		$(function() {
 			// setup hiding of everything below h2 elemenets
-			$('h2').click(function() { 
+			$('h2').click(function(event) {
+				event.preventDefault();
 				$(this).nextUntil('h2,h1').toggle(200); 
 			});
 
-			$('h1').click(function() {
+			$('h1').click(function(event) {
+				event.preventDefault();
 				$(this).nextUntil('h1', 'div').toggle(200);
+				$('div').css('overflow', '');
 			});
 
 			// create a new div around all of the h2 elements
