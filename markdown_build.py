@@ -17,7 +17,7 @@ _description_ = 'Convert a markdown file to an HTML file, adding syntax highligh
 parser = argparse.ArgumentParser(description=_description_)
 
 # required arguments
-parser.add_argument('markdown_file', metavar='MARKDOWN_FILE', type=str, nargs='+',
+parser.add_argument('markdown_files', metavar='MARKDOWN_FILE', type=str, nargs='+', 
 					help='A string filename of the markdown file to parse.')
 
 # optional arguments
@@ -34,7 +34,7 @@ args = parser.parse_args()
 html_file = args.html_file[0]
 header = DEFAULT_HEADER
 footer = DEFAULT_FOOTER
-markdown_file = args.markdown_file
+markdown_files = args.markdown_files
 verbose = args.verbose
 
 # add header to output file
@@ -43,7 +43,7 @@ outfile.write(open(header, 'rU').read().replace('$MARKDOWN_BUILD_DIR', MARKDOWN_
 outfile.close()
 
 # build output file
-for in_file in markdown_file:
+for in_file in markdown_files:
 	if not in_file.endswith('.md'):
 		if verbose: print "Ignoring non-markdown file '%s'..." % in_file
 		continue
@@ -54,7 +54,7 @@ for in_file in markdown_file:
 		continue
 
 	if verbose: print "Generating markdown for '%s'..." % in_file,
-	os.system('markdown %s >> %s' % (in_file, html_file))
+	os.system('markdown "%s" >> %s' % (in_file, html_file))
 	if verbose: print 'Done!'
 
 # add footer to output file
