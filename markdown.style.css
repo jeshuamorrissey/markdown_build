@@ -1,0 +1,24 @@
+h1,h2,h3,h4,p,li {
+	font-family: "Helvetica";
+}
+
+h1,h2 {
+	border-radius: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+h1 {
+	border-bottom: 2px solid #000;
+	background-color: #1F39FF;
+}
+
+h2 {
+	background-color: #7A8AFF;
+}
+
+em {
+	font-weight: bold;
+	font-style: normal;
+}
+

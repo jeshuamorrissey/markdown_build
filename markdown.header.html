@@ -1,0 +1,32 @@
+<html>
+<head>
+	<link rel="stylesheet" href="$MARKDOWN_BUILD_DIR/highlight/styles/default.css">
+	<link rel="stylesheet" href="$MARKDOWN_BUILD_DIR/markdown.style.css">
+	<script src="$MARKDOWN_BUILD_DIR/jquery-1.7.1.min.js"></script>
+	<script src="$MARKDOWN_BUILD_DIR/highlight/highlight.pack.js"></script>
+	<script type="text/javascript">
+		// initialise the syntax highlighter
+		hljs.tabReplace = '    ';
+		hljs.initHighlightingOnLoad();
+	
+		$(function() {
+			// setup hiding of everything below h2 elemenets
+			$('h2').click(function() { 
+				$(this).nextUntil('h2,h1').toggle(200); 
+			});
+
+			$('h1').click(function() {
+				$(this).nextUntil('h1', 'h2').each(function(i, e) {
+					$(e).nextUntil('h2,h1').hide();
+					$(e).toggle(200);
+				});
+			});
+		
+			// hide all children to begin with
+			$('h2').click();
+			$('h1').click();
+		});
+	</script>
+</head>
+<body>
+
